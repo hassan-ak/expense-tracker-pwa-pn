@@ -8,12 +8,14 @@ import { Summary } from './components/Summary';
 import { History } from './components/History';
 import { AddTransaction } from './components/AddTransaction';
 import { Footer } from './components/Footer';
+// Functional Component Imports
+import { GlobalProvider } from './functionalComponent/GlobalProvider';
 // Styles Imports
 import './App.css';
 
 function App() {
   return (
-    <div>
+    <GlobalProvider>
       <Header/>
       <div className="container">
         <Balance/>
@@ -22,7 +24,7 @@ function App() {
         <AddTransaction/>
       </div>
       <Footer/>
-    </div>
+    </GlobalProvider>
   );
 }
 
