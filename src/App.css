@@ -1,0 +1,231 @@
+/* Imports */
+/* Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+/* Genral Styling */
+*{
+    box-sizing: border-box;
+}
+:root {
+    --box-shadow: 0 1px 3px rgba(0,0,0,0.1),0 1px 2px rgba(0,0,0,0.2);
+    --plus: lime;
+    --minus: orangered;
+    --error-color: red;
+}
+body{
+    background-image: linear-gradient(rgba(6, 247, 247, 0.4),rgba(0, 0, 255, 0.4), rgba(255, 255, 0, 0.4),rgba(6, 247, 247, 0.4));
+    font-family: 'Playfair Display', serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    min-height: 100vh;
+}
+
+/* Components Container */
+.container{
+    background-color: white;
+    width: 450px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: var(--box-shadow);
+}
+
+/* Header Container */
+.header{
+    text-align: center;
+}
+
+/* Balance container */
+.balance{
+    margin-bottom: 10px;
+}
+.balance h4{
+    margin: 0;
+    text-transform: uppercase;
+}
+.balance h1{
+    margin: 0;
+    letter-spacing: 1px;
+}
+.balance span:first-of-type{
+    margin-right: 10px;
+} 
+
+/* Summary Component */
+.income-expense{
+    background-color: rgba(245, 245, 245, 0.705);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    border-radius: 20px;
+    border: 3px solid #ffe9e9;
+    box-shadow: 1px 2px 0px rgba(0, 0, 0, 0.1);
+}
+.income-expense h4{
+    margin: 0;
+    text-transform: uppercase;
+}
+.income-expense > div{
+    flex: 1;
+    text-align: center;
+}
+.income-expense> div:first-of-type{
+    border-right: 1px solid lightgrey;
+}
+.income-m, .expense-m{
+    font-size: 18px;
+    letter-spacing: 1px;
+    margin: 5px 0;
+}
+.income-m{
+    color: var(--plus);
+}
+.expense-m{
+    color: var(--minus);
+}
+
+/* History Component */
+.transaction-history h3{
+    border-bottom: 1px solid grey;
+    padding-bottom: 10px;
+    margin: 40px 0 10px;
+}
+.list{
+    list-style: none;
+    padding: 0;
+    margin-bottom: 0;
+}
+.list li{
+    background-color: rgba(245, 245, 245, 0.705);
+    box-shadow: var(--box-shadow);
+    color: grey;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 10px;
+    margin: 10px 10px;
+    border-radius: 20px;
+    transition: all 1s ease;
+}
+.income-h{
+    border-right: 5px solid var(--plus);
+}
+.income-h:hover{
+    background: linear-gradient(90deg, #7ce93c, #bddb78, #7ce93c);
+    border-right: none;
+    color: white;
+}
+.expense-h{
+    border-right: 5px solid var(--minus);
+}
+.expense-h:hover{
+    background: linear-gradient(90deg, #e96d3c, #db7878, #e96d3c);
+    border-right: none;
+    color: white;
+}
+.del{
+    background-color:orangered;
+    border: none;
+    color: white;
+    padding: 2px 5px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-100%,-50%);
+    border-radius: 10px;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+.list li:hover .del{
+    opacity: 1;
+    cursor: pointer;
+    outline: none;
+}
+
+/* AddTransaction Component */
+.addTransaction h3{
+    border-bottom: 1px solid grey;
+    padding-bottom: 10px;
+    margin: 40px 0 10px;
+}
+.form-control label {
+    display: inline-block;
+    margin: 10px 0;
+}
+.form-control input {
+    border: 1px solid lightgray;
+    border-radius: 15px;
+    display: block;
+    font-size: 16px;
+    padding: 10px;
+    width: 100%;
+}
+.form-control input:focus{
+    outline: none;
+}
+.btn{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+.add-income {
+    background: linear-gradient(90deg, #7ce93c,#bddb78);
+    box-shadow: var(--box-shadow);
+    border-radius: 10px;
+    border: 0;
+    display: block;
+    font-size: 16px;
+    margin: 10px 0 10px;
+    width: 35%;
+    padding: 10px;
+}
+.add-expense {
+    background: linear-gradient(90deg, #db7878,#e96d3c);
+    box-shadow: var(--box-shadow);
+    border-radius: 10px;
+    border: 0;
+    display: block;
+    font-size: 16px;
+    margin: 10px 0 10px;
+    width: 35%;
+    padding: 10px;
+}
+.btn button:hover{
+    cursor: pointer;
+}
+.btn button:focus{
+    outline: 0;
+}
+.form-control small{
+    visibility: hidden;
+}
+.smallError{
+    color: var(--error-color);
+    bottom: 0;
+    left: 0;
+    visibility: visible;
+}
+
+
+/* Footer Compponent */
+.footer{
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+/* Media Queries */
+@media (max-width:480px){
+    .container{
+        width: 400px;
+    }
+}
+@media (max-width:400px){
+    .container{
+        width: 350px;
+    }
+} 
