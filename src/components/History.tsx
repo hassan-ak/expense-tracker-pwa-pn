@@ -1,8 +1,14 @@
 // React Imports
-import React from 'react';
+import React, { useContext } from 'react';
+// Sub-component Imports
+import { Transactions } from './Transactions';
+// Functional Component Imports
+import { GlobalContext } from "../functionalComponent/GlobalContext";
 
 // History component Function
 export const History = () => {
+    // use GloablContext to fetch data
+    const context = useContext(GlobalContext);
     return (
         // Header Container
         <div className="transaction-history">
@@ -10,28 +16,13 @@ export const History = () => {
             <h3>Transaction History</h3>
             {/* list to show transaction History */}
             <ul className="list">
-                {/* List elements for each transaction */}
-                <li className="income-h">
-                    In
-                    <span>$100</span>
-                    {/* button fro deleting a transaction */}
-                    <button className="del">X</button>
-                </li>
-                <li className="expense-h">
-                    Out
-                    <span>-$100</span>
-                    <button className="del">X</button>
-                </li>
-                <li className="income-h">
-                    In1
-                    <span>$250</span>
-                    <button className="del">X</button>
-        	    </li>
-                <li className="expense-h">
-                    Out1
-                    <span>-$70</span>
-                    <button className="del">X</button>
-                </li>
+                {/* create list elements by maping through transactions */}
+                {context.transactions.map((transaction,i) => (
+                    <Transactions
+                        transaction = {transaction}
+                        key={i}
+                    />
+                ))}
             </ul>
         </div>
     )

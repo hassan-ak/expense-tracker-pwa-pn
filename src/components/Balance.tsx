@@ -1,12 +1,23 @@
 // React Imports
-import React from 'react';
+import React, { useContext } from 'react';
 // Web animations Imports
 import useWebAnimations, {flash} from "@wellyshen/use-web-animations";
+// Functional Component Imports
+import { GlobalContext } from "../functionalComponent/GlobalContext";
 
 // Balance component Function
 export const Balance = () => {
     // useWebAnimations
     const { ref } = useWebAnimations({...flash});
+    // use GloablContext to fetch data
+    const context = useContext(GlobalContext);
+    // Extarct amounts from data
+    const amounts = context.transactions.map(transaction => transaction.amount);    
+    // Sum of Income Amounts
+    const total1 = amounts.reduce((acc,item)=>(acc+=item),0);
+    const total = parseInt(total1.toFixed(2));
+    // Determine while total amount is +ve or -ve
+    const sign = total < 0 ?  '-' : '';
     return (
         // Balance Container
         <div className="balance">
@@ -14,8 +25,8 @@ export const Balance = () => {
             <h4>Balance</h4>
             {/* Balance Amount */}
             <h1>
-                <span>-</span>
-                <span ref={ref}>$100</span>
+                <span>{sign}</span>
+                <span ref={ref}>${total}</span>
             </h1>
         </div>
     )
