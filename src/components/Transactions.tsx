@@ -4,9 +4,10 @@ import React from 'react';
 // Define Data type Props
 type Props = {
     transaction: any;
+    deleteTrans : any;
 }
 
-export const Transactions  : React.FC<Props> = ({transaction}) => {
+export const Transactions  : React.FC<Props> = ({transaction,deleteTrans}) => {
     // Determine while transaction amount is income or expense
     const sign = transaction.amount < 0 ?  '-' : '+';
     // Determine style based upon transaction type
@@ -23,7 +24,9 @@ export const Transactions  : React.FC<Props> = ({transaction}) => {
                     {sign}${Math.abs(transaction.amount)}
                 </span>
                 {/* button fro deleting a transaction */}
-                <button className="del">X</button>
+                <button className="del" onClick={()=>{deleteTrans(transaction.id)}}>
+                    X
+                </button>
             </li>
         </div>
     )

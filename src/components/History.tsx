@@ -17,10 +17,11 @@ export const History = () => {
             {/* list to show transaction History */}
             <ul className="list">
                 {/* create list elements by maping through transactions */}
-                {context.transactions.map((transaction,i) => (
+                {context.transactions.map((transaction) => (
                     <Transactions
                         transaction = {transaction}
-                        key={i}
+                        key = {transaction.id}
+                        deleteTrans = {context.deleteTransaction}
                     />
                 ))}
             </ul>

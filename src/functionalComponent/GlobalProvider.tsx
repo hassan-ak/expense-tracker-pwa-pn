@@ -8,12 +8,24 @@ import { initialState } from './InitialState';
 
 // Provider Component
 export const GlobalProvider: React.FC = ({children}) => {
+    //Use reducer
     const [state, dispatch] = useReducer(AppReducer, initialState)
+    //Actions
+    //Delete Function
+    function deleteTransaction(id: number) {
+        dispatch({
+            type: "delete",
+            payload: id,
+        });
+    }
 
     return (
         <GlobalContext.Provider
-            value = {{transactions: state.transactions,
-                    }}>
+            value={{
+                transactions: state.transactions,
+                deleteTransaction
+            }}
+        >
             {children}
         </GlobalContext.Provider>
     )

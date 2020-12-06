@@ -14,10 +14,11 @@ export const Balance = () => {
     // Extarct amounts from data
     const amounts = context.transactions.map(transaction => transaction.amount);    
     // Sum of Income Amounts
-    const total1 = amounts.reduce((acc,item)=>(acc+=item),0);
+    const total1 = Math.abs(amounts.reduce((acc,item)=>(acc+=item),0));
     const total = parseInt(total1.toFixed(2));
     // Determine while total amount is +ve or -ve
-    const sign = total < 0 ?  '-' : '';
+    const sign1 = amounts.reduce((acc,item)=>(acc+=item),0);
+    const sign = sign1 < 0 ?  '-' : '';
     return (
         // Balance Container
         <div className="balance">
