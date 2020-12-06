@@ -201,9 +201,12 @@ body{
 .btn button:focus{
     outline: 0;
 }
-.form-control small{
+.smallSuccess{
+    bottom: 0;
+    left: 0;
     visibility: hidden;
 }
+
 .smallError{
     color: var(--error-color);
     bottom: 0;

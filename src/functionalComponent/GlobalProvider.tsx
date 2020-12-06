@@ -16,14 +16,22 @@ export const GlobalProvider: React.FC = ({children}) => {
         dispatch({
             type: "delete",
             payload: id,
-        });
+        });    
+        //Add Function
     }
+    function addTransaction(transaction: any) {
+        dispatch({
+            type: 'add',
+            payload: transaction,
+        })
+    };
 
     return (
         <GlobalContext.Provider
             value={{
                 transactions: state.transactions,
-                deleteTransaction
+                deleteTransaction,
+                addTransaction
             }}
         >
             {children}
