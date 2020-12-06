@@ -8,7 +8,7 @@ export const Summary = () => {
     // use GloablContext to fetch data
     const context = useContext(GlobalContext);
     // Extarct amounts from data
-    const amounts = context.transactions.map(transaction => transaction.amount);
+    const amounts = context.transactions.map(transaction => parseInt(transaction.amount));
     // Sum of Income Amounts
     const income1 = amounts.filter(item=>item>0).reduce((acc,item)=>(acc+=item),0);
     const income = income1.toFixed(2);

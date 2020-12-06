@@ -19,7 +19,7 @@ export const AddTransaction = () => {
         const newTransaction = { 
             id: Math.floor(Math.random()*10000000000),
             description,
-            amount: (Math.abs(+amount))*a
+            amount: `${(Math.abs(+amount))*a}`
         }
         //Check for empty entry
         if ((typeof description == 'undefined' || typeof amount == 'undefined')
@@ -90,7 +90,7 @@ export const AddTransaction = () => {
                             step="0.00000000001" 
                             placeholder="Enter Amount"
                             value={amount}
-                            onChange = {(e)=>{setAmount(`${e.target.value}`)}}
+                            onChange = {(e)=>{setAmount(e.target.value)}}
                     />
                     <small className={amStyle}>
                         Kindly Enter Amount
@@ -108,4 +108,4 @@ export const AddTransaction = () => {
             </form>
         </div>
     )
-}
+} 

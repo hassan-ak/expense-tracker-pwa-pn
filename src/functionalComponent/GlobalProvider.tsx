@@ -4,7 +4,7 @@ import React, { useReducer } from 'react';
 // Functional Component Imports
 import { AppReducer } from './AppReducer';
 import {GlobalContext} from './GlobalContext';
-import { initialState } from './InitialState';
+import { initialState , Transaction } from './InitialState';
 
 // Provider Component
 export const GlobalProvider: React.FC = ({children}) => {
@@ -16,10 +16,10 @@ export const GlobalProvider: React.FC = ({children}) => {
         dispatch({
             type: "delete",
             payload: id,
-        });    
-        //Add Function
+        });
     }
-    function addTransaction(transaction: any) {
+    // Add function
+    function addTransaction(transaction: Transaction) {
         dispatch({
             type: 'add',
             payload: transaction,

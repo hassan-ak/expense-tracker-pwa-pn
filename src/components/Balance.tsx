@@ -12,7 +12,7 @@ export const Balance = () => {
     // use GloablContext to fetch data
     const context = useContext(GlobalContext);
     // Extarct amounts from data
-    const amounts = context.transactions.map(transaction => transaction.amount);    
+    const amounts = context.transactions.map(transaction => parseInt(transaction.amount));    
     // Sum of Income Amounts
     const total1 = Math.abs(amounts.reduce((acc,item)=>(acc+=item),0));
     const total = parseInt(total1.toFixed(2));
