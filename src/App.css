@@ -232,3 +232,14 @@ body{
         width: 350px;
     }
 } 
+@media (max-width:350px){
+    .container{
+        width: 100%;
+    }
+    .add-income{
+        font-size: small;
+    }
+    .add-expense{
+        font-size: small;
+    }
+} 
